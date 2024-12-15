@@ -1,13 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../../core/services/product.service';
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from '../../core/services/product.service';
 import { material } from '../../shared/providers/angular-material';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -16,15 +16,15 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  productsSignal: any;
-  filteredProductSignal: any;
-  displayedColumns: string[] = [
-    'name',
-    'price',
-    'category',
-    'inStock',
-    'actions',
-  ];
+  productsSignal: any[] = []; // Ensure this is an array
+  filteredProductSignal!: MatTableDataSource<any>;
+  displayedColumns: string[] = ['id', 'name', 'price', 'category', 'inStock', 'actions'];
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  ngAfterViewInit() {
+    this.filteredProductSignal.sort = this.sort;  // Set sorting for the data source
+  }
 
   constructor(
     private productService: ProductService,
@@ -37,7 +37,7 @@ export class HomeComponent {
   ngOnInit() {
     this.route.params.subscribe(() => {
       this.productsSignal = this.productService.fetchProducts();
-      this.filteredProductSignal = this.productsSignal;
+      this.filteredProductSignal = new MatTableDataSource(this.productsSignal);  // Initialize MatTableDataSource
     });
   }
 
@@ -50,9 +50,9 @@ export class HomeComponent {
         product.price.toString().toLowerCase().includes(searchTerm) ||
         product.category.toLowerCase().includes(searchTerm)
       );
-      this.filteredProductSignal = filtered;
+      this.filteredProductSignal.data = filtered;  // Update the data of the table
     } else {
-      this.filteredProductSignal = this.productsSignal;
+      this.filteredProductSignal.data = this.productsSignal;  // Reset the data when search is cleared
     }
   }
 
@@ -67,10 +67,6 @@ export class HomeComponent {
   deleteProduct(productId: number) {
     this.productService.deleteProduct(productId);
     this.productsSignal = this.productService.fetchProducts();
-    this.filteredProductSignal = this.productsSignal;
-
-    // this.snackBar.open('Product deleted successfully', 'Close', {
-    //   duration: 1000,
-    // });
+    this.filteredProductSignal.data = this.productsSignal;
   }
 }
