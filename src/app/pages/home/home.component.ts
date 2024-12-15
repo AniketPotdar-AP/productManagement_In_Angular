@@ -69,8 +69,8 @@ export class HomeComponent {
     this.productsSignal = this.productService.fetchProducts();
     this.filteredProductSignal = this.productsSignal;
 
-    this.snackBar.open('Product deleted successfully', 'Close', {
-      duration: 1000,
-    });
+    // this.snackBar.open('Product deleted successfully', 'Close', {
+    //   duration: 1000,
+    // });
   }
 }
