@@ -25,5 +25,6 @@ export const material: any = [
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDialogModule
 ]
