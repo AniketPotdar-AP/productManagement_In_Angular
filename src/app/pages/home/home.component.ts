@@ -16,14 +16,14 @@ import { material } from '../../shared/providers/angular-material';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  productsSignal: any[] = []; // Ensure this is an array
+  productsSignal: any[] = [];
   filteredProductSignal!: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'name', 'price', 'category', 'inStock', 'actions'];
 
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit() {
-    this.filteredProductSignal.sort = this.sort;  // Set sorting for the data source
+    this.filteredProductSignal.sort = this.sort;
   }
 
   constructor(
@@ -37,7 +37,7 @@ export class HomeComponent {
   ngOnInit() {
     this.route.params.subscribe(() => {
       this.productsSignal = this.productService.fetchProducts();
-      this.filteredProductSignal = new MatTableDataSource(this.productsSignal);  // Initialize MatTableDataSource
+      this.filteredProductSignal = new MatTableDataSource(this.productsSignal);
     });
   }
 
@@ -50,9 +50,9 @@ export class HomeComponent {
         product.price.toString().toLowerCase().includes(searchTerm) ||
         product.category.toLowerCase().includes(searchTerm)
       );
-      this.filteredProductSignal.data = filtered;  // Update the data of the table
+      this.filteredProductSignal.data = filtered;
     } else {
-      this.filteredProductSignal.data = this.productsSignal;  // Reset the data when search is cleared
+      this.filteredProductSignal.data = this.productsSignal;
     }
   }
 
