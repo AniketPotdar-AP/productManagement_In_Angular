@@ -1,7 +1,6 @@
 .content {
   border-radius: 10px;
   margin: 16px;
-  margin-left: 32px;
   padding: 10px;
   font-size: 1rem;
   min-height: 80vh;
@@ -35,6 +34,10 @@ mat-form-field {
 @media screen and (max-width: 600px) {
   .createCon {
     display: none;
+  }
+
+  .content {
+    margin-right: 50px;
   }
 }
 
