@@ -1,0 +1,41 @@
+.content {
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  padding: 10px;
+  font-size: 1rem;
+  min-height: 80vh;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-container {
+  min-width: 600px;
+}
+
+mat-form-field {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.header {
+  border-bottom: 2px solid grey;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  .createCon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .addIcon {
+    display: none;
+  }
+}
