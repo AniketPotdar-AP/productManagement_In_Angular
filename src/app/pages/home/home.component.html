@@ -24,7 +24,6 @@
       </mat-form-field>
 
       <div class="table-responsive text-center">
-
         <ng-container *ngIf="getFilteredProductsLength(); else noProducts">
           <div class="table-container">
             <table mat-table [dataSource]="filteredProductSignal" matSort class="table mat-elevation-z8">
@@ -56,8 +55,8 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   In Stock
                 </th>
-                <td mat-cell *matCellDef="let product">
-                  {{ product.inStock }}
+                <td [ngStyle]="{'color': product.inStock == true ? 'green': 'red'}" mat-cell *matCellDef="let product">
+                  {{ product.inStock == true ? 'In Stock' : 'Out of Stock' }}
                 </td>
               </ng-container>
 
