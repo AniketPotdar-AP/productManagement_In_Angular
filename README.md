@@ -1,59 +1,79 @@
-# ProdManagement
+# Product Management App ## 
+Overview This project is a **Product Management Application** built using **Angular**, **Angular Material**, and **Angular 19**. The app allows users to perform basic CRUD (Create, Read, Update, Delete) operations for managing products. Additionally, users can sort products based on their stock status, category, and name. 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+## Features - 
+**CRUD Operations**: - Create a new product - View a list of products - Update existing product details - Delete products 
 
-## Development server
+**Sorting Options**: - Sort products based on: - Stock status (In Stock / Out of Stock) - Product category - Product name 
 
-To start a local development server, run:
+**Responsive UI**: Designed with Angular Material to ensure a user-friendly and responsive interface. 
 
-```bash
-ng serve
-```
+## Demo 
+The application is live and accessible at: [Product Management App Demo](https://prodmanagementangular.netlify.app) 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tech Stack - 
+**Frontend Framework**: Angular 19 
 
-## Code scaffolding
+**UI Library**: Angular Material
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**CSS**: Responsive design with Angular Material components
 
-```bash
-ng generate component component-name
-```
+**Hosting**: Netlify 
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Installation 
 
-```bash
-ng generate --help
-```
+1. Clone the repository: 
 
-## Building
+```git clone https://github.com/AniketPotdar-AP/productManagement_In_Angular.git```
+ 
+```cd product-management-app ``` 
 
-To build the project run:
+2. Install dependencies: ```npm install ```
 
-```bash
-ng build
-```
+3. Run the development server: ```ng serve ``` The app will be accessible at `http://localhost:4200/`. 
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Usage 
 
-## Running unit tests
+### Adding a New Product - 
+Navigate to the "Add Product" section. - Fill in the required fields (name, category, stock status, etc.).
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Click the "Save" button to add the product. 
 
-```bash
-ng test
-```
+### Viewing Products - 
 
-## Running end-to-end tests
+Access the "Product List" page to view all products. - Use sorting options to organize products by name, category, or stock status. 
 
-For end-to-end (e2e) testing, run:
+### Editing a Product - 
 
-```bash
-ng e2e
-```
+Select a product from the list. - Click on the "Edit" button. - Modify the details and save changes. 
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Deleting a Product - Select a product from the list. 
 
-## Additional Resources
+Click on the "Delete" button to remove the product. 
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Development Notes 
+
+### Prerequisites - 
+
+**Node.js**: Ensure Node.js (v14 or later) is installed. 
+
+**Angular CLI**: Install Angular CLI globally: ```npm install -g @angular/cli ``` 
+
+### Folder Structure - 
+
+`src/app/`: Contains all application components, services, and modules. 
+
+`src/assets/`: Stores static assets like images and icons. 
+
+### Key Components 
+**Product List Component**: Displays the list of products with sorting options. 
+
+**Product Form Component**: Handles product creation and editing. 
+
+**Product Service**: Manages API calls and state management for products. 
+
+### Contact For questions or support, please contact: - 
+
+**Email**: aniketpanditpotdar@gmail.com
+
+**GitHub**: [GitHub Profile](https://github.com/AniketPotdar-AP)
